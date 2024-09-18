@@ -161,8 +161,8 @@ def main_loop():
             if numbers_and_arrows == [0, 0, 0, 0]:
                 print("Detected [0, 0, 0, 0]. Pausing the bot.")
                 print("Waiting connection...")
-                time.sleep(6)
-                print("Bot restarted.")
+                time.sleep(8)
+                print("Bot restarted")
                 continue
 
             total = sum(numbers_and_arrows)
