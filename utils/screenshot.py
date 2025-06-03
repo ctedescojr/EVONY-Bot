@@ -13,7 +13,7 @@ def main():
     while True:
         # Assume you want to capture an area periodically
         print("Capturing the screen...")
-        capture_area(2335, 440, 25, 310, "capture.png")  # Specify the filename
+        capture_area(1620, 1450, 500, 42, "capture2.png")  # Specify the filename
         print("Image saved as 'capture.png'")
         time.sleep(10)  # Wait 10 seconds before the next capture
 

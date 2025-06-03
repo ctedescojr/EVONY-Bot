@@ -6,6 +6,14 @@ import pytesseract
 import keyboard
 from PIL import Image, ImageDraw, ImageFont
 
+# MARK: Coordinates
+X_ACTION = 2130
+Y_ACTION = 1980
+X_CONFIRM = 2130
+Y_CONFIRM = 1980
+X_CANCEL = 1600
+Y_CANCEL = 1980
+
 # Tesseract's PATH
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
@@ -143,7 +151,7 @@ def main_loop():
             print(f"Interaction: {interaction}")
             # Click the "Cultivate Gold" button
             click_button(
-                2130, 1980
+                X_ACTION, Y_ACTION
             )  # Approximate coordinates of the "Cultivate Gold" button
             time.sleep(1)
 
@@ -167,15 +175,17 @@ def main_loop():
 
             total = sum(numbers_and_arrows)
             print(f"Sum: {total}")
-            if total >= 0:
+            if total > 0:
                 # Click the "Confirm" button
-                click_button(2130, 1980)  # Coordinates of the "Confirm" button
+                click_button(
+                    X_CONFIRM, Y_CONFIRM
+                )  # Coordinates of the "Confirm" button
                 confirm += 1
                 points_gained += total
                 print(f"Confirmed: {confirm}")
             else:
                 # Click the "Cancel" button
-                click_button(1600, 1980)  # Coordinates of the "Cancel" button
+                click_button(X_CANCEL, Y_CANCEL)  # Coordinates of the "Cancel" button
                 cancel += 1
                 print(f"Cancelled: {cancel}")
             numbers_and_arrows = []
