@@ -138,6 +138,7 @@ def main_loop():
     points_gained = 0
     interaction = 1
     running = False
+    waiting = False
     while True:
         if keyboard.is_pressed("s"):
             running = True
@@ -153,7 +154,11 @@ def main_loop():
             click_button(
                 X_ACTION, Y_ACTION
             )  # Approximate coordinates of the "Cultivate Gold" button
-            time.sleep(1)
+            if waiting == True:
+                time.sleep(6)
+                waiting = False
+            else:
+                time.sleep(1)
 
             # Capture the area where the numbers with arrows appear
             img_numbers = capture_area(
@@ -169,7 +174,8 @@ def main_loop():
             if numbers_and_arrows == [0, 0, 0, 0]:
                 print("Detected [0, 0, 0, 0]. Pausing the bot.")
                 print("Waiting connection...")
-                time.sleep(8)
+                time.sleep(6)
+                waiting = True
                 print("Bot restarted")
                 continue
 
